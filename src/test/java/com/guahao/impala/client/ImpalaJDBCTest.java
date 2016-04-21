@@ -1,0 +1,18 @@
+package com.guahao.impala.client;
+
+import java.util.List;
+
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class ImpalaJDBCTest {
+	
+	@Test
+	public void testImpalaConnection() {
+		ImpalaJDBC impalaJDBC = new ImpalaJDBC();
+		String sql = "SELECT * FROM web_logs limit 8";
+		List<String> list = impalaJDBC.getResultList(sql);
+		assertEquals("Error - you didn't fetch enough rows that we expected", 8, list.size());
+	}
+}
