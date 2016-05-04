@@ -1,4 +1,4 @@
-package com.guahao.kafka.client;
+package com.octopx.kafka.client;
 
 import kafka.producer.Partitioner;
 import kafka.utils.VerifiableProperties;

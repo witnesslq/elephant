@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.octopx.impala.client.ImpalaJDBC;
+
 import static org.junit.Assert.*;
 
 public class ImpalaJDBCTest {

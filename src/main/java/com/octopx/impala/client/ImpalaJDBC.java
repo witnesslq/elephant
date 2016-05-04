@@ -1,4 +1,4 @@
-package com.guahao.impala.client;
+package com.octopx.impala.client;
 
 import java.sql.Connection;  
 import java.sql.DriverManager;  

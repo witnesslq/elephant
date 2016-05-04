@@ -1,4 +1,4 @@
-package com.guahao.kafka.client;
+package com.octopx.kafka.client;
 
 import java.util.Date;
 import java.util.Properties;
@@ -13,7 +13,7 @@ public class ProducerClient {
 	public void produce(long events) {
 
 		Properties props = new Properties();
-		props.put("metadata.broker.list", "192.168.1.90:9092,192.168.1.91:9092,192.168.1.92:9092");
+		props.put("metadata.broker.list", "192.168.1.99:9092,192.168.1.98:9092,192.168.1.97:9092");
 		props.put("serializer.class", "kafka.serializer.StringEncoder");
 		props.put("partitioner.class", "com.guahao.kafka.client.SimplePartitioner");
 		props.put("request.required.acks", "1");
