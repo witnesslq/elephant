@@ -1,5 +1,6 @@
 package com.octopx.kafka.client;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;
 import java.util.Random;
@@ -13,11 +14,12 @@ public class ProducerClient {
 	public void produce(long events) {
 
 		Properties props = new Properties();
-		props.put("metadata.broker.list", "192.168.1.99:9092,192.168.1.98:9092,192.168.1.97:9092");
-		props.put("serializer.class", "kafka.serializer.StringEncoder");
-		props.put("partitioner.class", "com.guahao.kafka.client.SimplePartitioner");
-		props.put("request.required.acks", "1");
-		
+		try {
+			props.load(ProducerClient.class.getClassLoader().getResourceAsStream("kafka/producer.properties"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		ProducerConfig config = new ProducerConfig(props);
 		Producer<String, String> producer = new Producer<String, String>(config);
 		

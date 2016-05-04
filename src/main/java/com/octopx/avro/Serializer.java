@@ -33,5 +33,4 @@ public class Serializer {
 		dataFileWriter.append(user3);
 		dataFileWriter.close();
 	}
-	
 }
