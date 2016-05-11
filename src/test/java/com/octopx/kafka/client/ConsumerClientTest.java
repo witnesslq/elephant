@@ -1,4 +1,4 @@
-package com.guahao.kafka.client;
+package com.octopx.kafka.client;
 
 import static org.junit.Assert.assertTrue;
 

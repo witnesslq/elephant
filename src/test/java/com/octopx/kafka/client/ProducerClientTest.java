@@ -1,4 +1,4 @@
-package com.guahao.kafka.client;
+package com.octopx.kafka.client;
 
 import org.junit.Test;
 

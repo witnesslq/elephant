@@ -11,10 +11,11 @@ import scala.Tuple2;
 
 public class SimpleApp {
 	private final static String SPARK_HOME = "/Users/yuyang/Workspace/Binary/spark-1.6.1-bin-hadoop2.6";
+	private final static String HDFS_HOME = "hdfs://192.168.1.178:8020";
 	
 	public static void main(String[] args) {
-		String logFile = SPARK_HOME + "/README.md";
-		SparkConf conf = new SparkConf().setAppName("Simple Application").setMaster("local[4]");
+		String logFile = HDFS_HOME + "/user/yuyang/README.md";
+		SparkConf conf = new SparkConf().setAppName("Simple Application");
 		JavaSparkContext sc = new JavaSparkContext(conf);
 		
 		JavaRDD<Integer> distData = sc.parallelize(Arrays.asList(1, 2, 3, 4, 5));
