@@ -51,6 +51,16 @@
 			<artifactId>scala-reflect</artifactId>
 			<version>2.10.2</version>
 		</dependency>
+		<dependency> <!-- HDFS dependency -->
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-hdfs</artifactId>
+			<version>2.7.2</version>
+		</dependency>
+		<dependency> <!-- Presto dependency -->
+			<groupId>com.facebook.presto</groupId>
+			<artifactId>presto-jdbc</artifactId>
+			<version>0.147</version>
+		</dependency>
 		<dependency> <!-- Kafka dependency -->
 			<groupId>org.apache.kafka</groupId>
 			<artifactId>kafka_2.9.2</artifactId>
