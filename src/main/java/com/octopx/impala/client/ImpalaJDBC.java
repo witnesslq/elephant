@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ImpalaJDBC {  
-    private static final String IMPALAD_HOST = "192.168.1.90";  
+    private static final String IMPALAD_HOST = "192.168.1.99";  
     private static final String IMPALAD_JDBC_PORT = "21050";
     private static final String CONNECTION_URL = "jdbc:hive2://" + IMPALAD_HOST + ':' + IMPALAD_JDBC_PORT + "/;auth=noSasl";  
     private static final String JDBC_DRIVER_NAME = "org.apache.hive.jdbc.HiveDriver";  
