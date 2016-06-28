@@ -1,4 +1,4 @@
-package com.octopx.storm.bolt;
+package com.octopx.storm.basic.bolt;
 
 import org.apache.storm.topology.BasicOutputCollector;
 import org.apache.storm.topology.OutputFieldsDeclarer;

@@ -1,4 +1,4 @@
-package com.octopx.storm.topo;
+package com.octopx.storm.basic.topo;
 
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
@@ -9,9 +9,9 @@ import org.apache.storm.generated.InvalidTopologyException;
 import org.apache.storm.topology.TopologyBuilder;
 import org.apache.storm.utils.Utils;
 
-import com.octopx.storm.bolt.ExclaimBasicBolt;
-import com.octopx.storm.bolt.PrintBolt;
-import com.octopx.storm.spout.RandomSpout;
+import com.octopx.storm.basic.bolt.ExclaimBasicBolt;
+import com.octopx.storm.basic.bolt.PrintBolt;
+import com.octopx.storm.basic.spout.RandomSpout;
 
 
 public class ExclaimBasicTopo {

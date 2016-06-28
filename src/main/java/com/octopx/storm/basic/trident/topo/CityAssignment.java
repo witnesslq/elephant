@@ -1,11 +1,10 @@
-package com.octopx.storm.trident.topo;
+package com.octopx.storm.basic.trident.topo;
 
-import com.octopx.storm.trident.spout.DiagnosisEvent;
+import com.octopx.storm.basic.trident.spout.DiagnosisEvent;
 import org.apache.storm.trident.operation.Function;
 import org.apache.storm.trident.operation.TridentCollector;
 import org.apache.storm.trident.operation.TridentOperationContext;
 import org.apache.storm.trident.tuple.TridentTuple;
-import org.apache.storm.tuple.Values;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

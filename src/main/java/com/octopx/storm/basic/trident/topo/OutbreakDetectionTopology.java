@@ -1,13 +1,12 @@
-package com.octopx.storm.trident.topo;
+package com.octopx.storm.basic.trident.topo;
 
-import com.octopx.storm.trident.spout.DiagnosisEventSpout;
+import com.octopx.storm.basic.trident.spout.DiagnosisEventSpout;
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
 import org.apache.storm.generated.StormTopology;
 import org.apache.storm.trident.Stream;
 import org.apache.storm.trident.TridentTopology;
 import org.apache.storm.tuple.Fields;
-import org.apache.storm.utils.Time;
 
 /**
  * Created by yuyang on 16/5/24.

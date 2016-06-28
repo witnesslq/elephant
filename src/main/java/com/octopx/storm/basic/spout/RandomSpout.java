@@ -1,4 +1,4 @@
-package com.octopx.storm.spout;
+package com.octopx.storm.basic.spout;
 
 import java.util.Map;
 import java.util.Random;
