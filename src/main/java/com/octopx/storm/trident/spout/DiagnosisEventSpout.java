@@ -5,11 +5,14 @@ import java.util.Map;
 import org.apache.storm.task.TopologyContext;
 import org.apache.storm.trident.spout.ITridentSpout;
 import org.apache.storm.tuple.Fields;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
 public class DiagnosisEventSpout implements ITridentSpout<Long> {
 	private static final long serialVersionUID = 1L;
 	private BatchCoordinator<Long> coordinator = new DefaultCoordinator();
 	private Emitter<Long> emitter = new DiagnosisEventEmitter();
+	private static final Logger logger = LoggerFactory.getLogger(DiagnosisEventSpout.class);
 
 	@Override
 	public Map<String, Object> getComponentConfiguration() {

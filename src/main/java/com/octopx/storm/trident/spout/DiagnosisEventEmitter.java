@@ -14,11 +14,6 @@ public class DiagnosisEventEmitter implements Emitter<Long>, Serializable {
 	private AtomicInteger successfulTransactions = new AtomicInteger();
 
 	@Override
-	public void close() {
-
-	}
-
-	@Override
 	public void emitBatch(TransactionAttempt tx, Long coordinatorMeta, TridentCollector collector) {
 		for (int i = 0; i < 10000; i++) {
 			List<Object> events = new ArrayList<Object>();
@@ -36,6 +31,12 @@ public class DiagnosisEventEmitter implements Emitter<Long>, Serializable {
 	@Override
 	public void success(TransactionAttempt tx) {
 		successfulTransactions.incrementAndGet();
+	}
+
+
+	@Override
+	public void close() {
+
 	}
 
 }
