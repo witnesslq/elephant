@@ -1,4 +1,4 @@
-package com.octopx.storm.basic.trident.spout;
+package com.octopx.storm.trident;
 
 import java.io.Serializable;
 import java.util.ArrayList;

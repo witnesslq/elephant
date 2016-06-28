@@ -1,6 +1,5 @@
-package com.octopx.storm.basic.trident.topo;
+package com.octopx.storm.trident;
 
-import com.octopx.storm.basic.trident.spout.DiagnosisEventSpout;
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
 import org.apache.storm.generated.StormTopology;

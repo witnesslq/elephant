@@ -1,6 +1,5 @@
-package com.octopx.storm.basic.trident.topo;
+package com.octopx.storm.trident;
 
-import com.octopx.storm.basic.trident.spout.DiagnosisEvent;
 import org.apache.storm.trident.operation.BaseFunction;
 import org.apache.storm.trident.operation.TridentCollector;
 import org.apache.storm.trident.tuple.TridentTuple;

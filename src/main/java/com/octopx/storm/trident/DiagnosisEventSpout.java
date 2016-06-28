@@ -1,4 +1,4 @@
-package com.octopx.storm.basic.trident.spout;
+package com.octopx.storm.trident;
 
 import java.util.Map;
 
