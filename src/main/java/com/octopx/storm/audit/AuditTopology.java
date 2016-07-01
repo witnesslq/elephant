@@ -32,8 +32,9 @@ public class AuditTopology {
         KafkaSpout kafkaSpout = new KafkaSpout(spoutConfig);
 
         builder.setSpout("kafka-spout", kafkaSpout, 5);
-        builder.setBolt("word-splitter", new WordSplitterBolt(), 2).shuffleGrouping("kafka-spout");
-        builder.setBolt("word-counter", new WordCounterBolt()).fieldsGrouping("word-splitter", new Fields("word"));
+        builder.setBolt("line-printer", new PrintBolt(), 1).shuffleGrouping("kafka-spout");
+//        builder.setBolt("word-splitter", new WordSplitterBolt(), 2).shuffleGrouping("kafka-spout");
+//        builder.setBolt("word-counter", new WordCounterBolt()).fieldsGrouping("word-splitter", new Fields("word"));
 
         Config conf = new Config();
         conf.setDebug(true);
@@ -47,8 +48,6 @@ public class AuditTopology {
             conf.setMaxTaskParallelism(3);
             LocalCluster localCluster = new LocalCluster();
             localCluster.submitTopology(name, conf, builder.createTopology());
-            Utils.sleep(100000);
-            localCluster.shutdown();
         }
     }
 }

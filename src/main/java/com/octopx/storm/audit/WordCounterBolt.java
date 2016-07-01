@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Created by yuyang on 16/6/28.
  */
 public class WordCounterBolt extends BaseRichBolt {
-    private final static Logger logger = Logger.getLogger(WordCounterBolt.class);
+    //private final static Logger logger = Logger.getLogger(WordCounterBolt.class);
     private OutputCollector collector;
     private Map<String, AtomicInteger> counterMap;
 
@@ -31,7 +31,7 @@ public class WordCounterBolt extends BaseRichBolt {
     public void execute(Tuple input) {
         String word = input.getString(0);
         int count = input.getInteger(1);
-        logger.info("RECV[splitter -> counter] " + word + " : " + count);
+        System.out.println("RECV[splitter -> counter] " + word + " : " + count);
         AtomicInteger ai = counterMap.get(word);
         if (ai == null) {
             ai = new AtomicInteger();
@@ -39,18 +39,18 @@ public class WordCounterBolt extends BaseRichBolt {
         }
         ai.addAndGet(count);
         collector.ack(input);
-        logger.info("CHECK statistics map: " + counterMap);
+        System.out.println("CHECK statistics map: " + counterMap);
     }
 
-    @Override
-    public void cleanup() {
-        logger.info("The final result:");
-        Iterator<Map.Entry<String, AtomicInteger>> iter = counterMap.entrySet().iterator();
-        while (iter.hasNext()) {
-            Map.Entry<String, AtomicInteger> entry = iter.next();
-            logger.info(entry.getKey() + "\t:\t" + entry.getValue().get());
-        }
-    }
+//    @Override
+//    public void cleanup() {
+//        System.out.println("The final result:");
+//        Iterator<Map.Entry<String, AtomicInteger>> iter = counterMap.entrySet().iterator();
+//        while (iter.hasNext()) {
+//            Map.Entry<String, AtomicInteger> entry = iter.next();
+//            System.out.println(entry.getKey() + "\t:\t" + entry.getValue().get());
+//        }
+//    }
 
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {

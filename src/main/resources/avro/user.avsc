@@ -1,5 +1,5 @@
 {
-	"namespace": "com.octopx.avro",
+	"namespace": "com.octopx.hadoop.avro",
 	"type": "record",
 	"name": "User",
 	"fields": [

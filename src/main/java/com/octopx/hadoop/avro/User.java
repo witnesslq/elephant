@@ -3,15 +3,17 @@
  * 
  * DO NOT EDIT DIRECTLY
  */
-package com.octopx.avro;
+package com.octopx.hadoop.avro;
+
+import org.apache.avro.specific.SpecificRecord;
+import org.apache.avro.specific.SpecificRecordBase;
 
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
-public class User extends org.apache.avro.specific.SpecificRecordBase implements
-		org.apache.avro.specific.SpecificRecord {
+public class User extends SpecificRecordBase implements SpecificRecord {
 	private static final long serialVersionUID = -8430674749437319557L;
 	public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser()
-			.parse("{\"type\":\"record\",\"name\":\"User\",\"namespace\":\"com.octopx.avro\",\"fields\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"favorite_number\",\"type\":[\"int\",\"null\"]},{\"name\":\"favorite_color\",\"type\":[\"string\",\"null\"]}]}");
+			.parse("{\"type\":\"record\",\"name\":\"User\",\"namespace\":\"com.octopx.hadoop.avro\",\"fields\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"favorite_number\",\"type\":[\"int\",\"null\"]},{\"name\":\"favorite_color\",\"type\":[\"string\",\"null\"]}]}");
 
 	public static org.apache.avro.Schema getClassSchema() {
 		return SCHEMA$;
@@ -134,8 +136,8 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
 	 * 
 	 * @return A new User RecordBuilder
 	 */
-	public static com.octopx.avro.User.Builder newBuilder() {
-		return new com.octopx.avro.User.Builder();
+	public static com.octopx.hadoop.avro.User.Builder newBuilder() {
+		return new com.octopx.hadoop.avro.User.Builder();
 	}
 
 	/**
@@ -145,9 +147,9 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
 	 *            The existing builder to copy.
 	 * @return A new User RecordBuilder
 	 */
-	public static com.octopx.avro.User.Builder newBuilder(
-			com.octopx.avro.User.Builder other) {
-		return new com.octopx.avro.User.Builder(other);
+	public static com.octopx.hadoop.avro.User.Builder newBuilder(
+			com.octopx.hadoop.avro.User.Builder other) {
+		return new com.octopx.hadoop.avro.User.Builder(other);
 	}
 
 	/**
@@ -157,9 +159,9 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
 	 *            The existing instance to copy.
 	 * @return A new User RecordBuilder
 	 */
-	public static com.octopx.avro.User.Builder newBuilder(
-			com.octopx.avro.User other) {
-		return new com.octopx.avro.User.Builder(other);
+	public static com.octopx.hadoop.avro.User.Builder newBuilder(
+			com.octopx.hadoop.avro.User other) {
+		return new com.octopx.hadoop.avro.User.Builder(other);
 	}
 
 	/**
@@ -175,7 +177,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
 
 		/** Creates a new Builder */
 		private Builder() {
-			super(com.octopx.avro.User.SCHEMA$);
+			super(com.octopx.hadoop.avro.User.SCHEMA$);
 		}
 
 		/**
@@ -184,7 +186,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
 		 * @param other
 		 *            The existing Builder to copy.
 		 */
-		private Builder(com.octopx.avro.User.Builder other) {
+		private Builder(com.octopx.hadoop.avro.User.Builder other) {
 			super(other);
 			if (isValidValue(fields()[0], other.name)) {
 				this.name = data().deepCopy(fields()[0].schema(), other.name);
@@ -208,8 +210,8 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
 		 * @param other
 		 *            The existing instance to copy.
 		 */
-		private Builder(com.octopx.avro.User other) {
-			super(com.octopx.avro.User.SCHEMA$);
+		private Builder(com.octopx.hadoop.avro.User other) {
+			super(com.octopx.hadoop.avro.User.SCHEMA$);
 			if (isValidValue(fields()[0], other.name)) {
 				this.name = data().deepCopy(fields()[0].schema(), other.name);
 				fieldSetFlags()[0] = true;
@@ -242,7 +244,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
 		 *            The value of 'name'.
 		 * @return This builder.
 		 */
-		public com.octopx.avro.User.Builder setName(java.lang.CharSequence value) {
+		public com.octopx.hadoop.avro.User.Builder setName(java.lang.CharSequence value) {
 			validate(fields()[0], value);
 			this.name = value;
 			fieldSetFlags()[0] = true;
@@ -263,7 +265,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
 		 * 
 		 * @return This builder.
 		 */
-		public com.octopx.avro.User.Builder clearName() {
+		public com.octopx.hadoop.avro.User.Builder clearName() {
 			name = null;
 			fieldSetFlags()[0] = false;
 			return this;
@@ -285,7 +287,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
 		 *            The value of 'favorite_number'.
 		 * @return This builder.
 		 */
-		public com.octopx.avro.User.Builder setFavoriteNumber(
+		public com.octopx.hadoop.avro.User.Builder setFavoriteNumber(
 				java.lang.Integer value) {
 			validate(fields()[1], value);
 			this.favorite_number = value;
@@ -308,7 +310,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
 		 * 
 		 * @return This builder.
 		 */
-		public com.octopx.avro.User.Builder clearFavoriteNumber() {
+		public com.octopx.hadoop.avro.User.Builder clearFavoriteNumber() {
 			favorite_number = null;
 			fieldSetFlags()[1] = false;
 			return this;
@@ -330,7 +332,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
 		 *            The value of 'favorite_color'.
 		 * @return This builder.
 		 */
-		public com.octopx.avro.User.Builder setFavoriteColor(
+		public com.octopx.hadoop.avro.User.Builder setFavoriteColor(
 				java.lang.CharSequence value) {
 			validate(fields()[2], value);
 			this.favorite_color = value;
@@ -353,7 +355,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
 		 * 
 		 * @return This builder.
 		 */
-		public com.octopx.avro.User.Builder clearFavoriteColor() {
+		public com.octopx.hadoop.avro.User.Builder clearFavoriteColor() {
 			favorite_color = null;
 			fieldSetFlags()[2] = false;
 			return this;

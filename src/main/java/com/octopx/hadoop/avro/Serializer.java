@@ -1,4 +1,4 @@
-package com.octopx.avro;
+package com.octopx.hadoop.avro;
 
 import java.io.File;
 import java.io.IOException;
