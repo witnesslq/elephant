@@ -1,4 +1,4 @@
-package com.octopx.spark.streaming;
+package com.octopx.spark.netcount;
 
 import java.util.Arrays;
 
