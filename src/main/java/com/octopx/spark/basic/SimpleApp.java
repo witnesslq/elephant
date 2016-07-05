@@ -1,4 +1,4 @@
-package com.octopx.spark.client;
+package com.octopx.spark.basic;
 
 import java.util.Arrays;
 
@@ -23,6 +23,7 @@ public class SimpleApp {
 		System.out.println("Sum of 1, 2, 3, 4, 5: " + sum);
 		
 		JavaRDD<String> logData = sc.textFile(logFile).cache();
+
 //		long numAs = logData.filter(new Function<String, Boolean>() {
 //			public Boolean call(String s) {
 //				return s.contains("a");
@@ -33,6 +34,7 @@ public class SimpleApp {
 //				return s.contains("c");
 //			}
 //		}).count();
+
 		long numAs = logData.filter(s -> s.contains("a")).count();
 		long numCs = logData.filter(s -> s.contains("c")).count();
 		System.out.println("Lines with a: " + numAs + ", lines with c: " + numCs);

@@ -121,6 +121,16 @@
             <artifactId>storm-kafka</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency> <!-- Parquet -->
+            <groupId>org.apache.parquet</groupId>
+            <artifactId>parquet-hadoop</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+        <dependency> <!-- Kryo -->
+            <groupId>com.esotericsoftware</groupId>
+            <artifactId>kryo-shaded</artifactId>
+            <version>3.0.3</version>
+        </dependency>
 	</dependencies>
 
 	<build>
@@ -158,6 +168,37 @@
 	</build>
 
     <profiles>
+        <profile>
+            <id>mapreduce</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <version>2.4</version>
+                        <configuration>
+                            <finalName>mapreduce</finalName>
+                            <goal>jar</goal>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>package-mapreduce-basic</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <classifier>basic</classifier>
+                                    <includes>
+                                        <include>**/mapreduce/basic/**</include>
+                                    </includes>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
         <profile>
             <id>storm</id>
             <build>
@@ -236,6 +277,34 @@
         </profile>
         <profile>
             <id>spark</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <version>2.4</version>
+                        <configuration>
+                            <finalName>spark</finalName>
+                            <goal>jar</goal>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>package-spark-basic</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <classifier>basic</classifier>
+                                    <includes>
+                                        <include>**/spark/basic/**</include>
+                                    </includes>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 </project>

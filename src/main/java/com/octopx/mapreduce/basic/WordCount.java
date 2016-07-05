@@ -1,4 +1,4 @@
-package com.octopx.mapr.client;
+package com.octopx.mapreduce.basic;
 
 import java.io.IOException;
 import java.util.StringTokenizer;

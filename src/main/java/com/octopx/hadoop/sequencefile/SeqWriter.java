@@ -1,12 +1,9 @@
-package com.octopx.hadoop.seq;
+package com.octopx.hadoop.sequencefile;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IOUtils;
-import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.SequenceFile;
-import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.*;
 import org.apache.hadoop.io.compress.CompressionCodec;
 import org.apache.hadoop.io.compress.GzipCodec;
 
@@ -24,6 +21,7 @@ public class SeqWriter {
         FileSystem fs = FileSystem.get(conf);
         Path path = new Path("world.seq");
         SequenceFile.Writer writer = null;
+        BytesWritable bw = null;
         try {
             IntWritable key = new IntWritable();
             Text value = new Text();

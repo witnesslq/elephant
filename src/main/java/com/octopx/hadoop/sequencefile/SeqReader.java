@@ -1,4 +1,4 @@
-package com.octopx.hadoop.seq;
+package com.octopx.hadoop.sequencefile;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
