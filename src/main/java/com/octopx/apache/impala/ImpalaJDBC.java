@@ -1,4 +1,4 @@
-package com.octopx.impala.client;
+package com.octopx.apache.impala;
 
 import java.sql.Connection;  
 import java.sql.DriverManager;  

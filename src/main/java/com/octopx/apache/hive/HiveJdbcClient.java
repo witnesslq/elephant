@@ -1,4 +1,4 @@
-package com.octopx.hive.client;
+package com.octopx.apache.hive;
 
 import java.sql.*;
 

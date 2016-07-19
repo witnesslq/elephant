@@ -34,17 +34,20 @@ public class JavaNetworkWordCount {
 		});
 		
 		// Count each word in each batch
-		JavaPairDStream<String, Integer> pairs = words.mapToPair(new PairFunction<String, String, Integer>() {
-			public Tuple2<String, Integer> call(String s) {
-				return new Tuple2<String, Integer>(s, 1);
-			}
-		});
+//		JavaPairDStream<String, Integer> pairs = words.mapToPair(new PairFunction<String, String, Integer>() {
+//			public Tuple2<String, Integer> call(String s) {
+//				return new Tuple2<String, Integer>(s, 1);
+//			}
+//		});
 		
-		JavaPairDStream<String, Integer> wordCounts = pairs.reduceByKey(new Function2<Integer, Integer, Integer>() {
-			public Integer call(Integer i1, Integer i2) {
-				return i1 + i2;
-			}
-		});
+//		JavaPairDStream<String, Integer> wordCounts = pairs.reduceByKey(new Function2<Integer, Integer, Integer>() {
+//			public Integer call(Integer i1, Integer i2) {
+//				return i1 + i2;
+//			}
+//		});
+
+        JavaPairDStream<String, Integer> wordCounts = words.mapToPair(word -> new Tuple2<String, Integer>(word, 1))
+                .reduceByKey((i1, i2) -> i1 + i2);
 		
 		// Print the first ten elements of each RDD generated in this DStream to the console
 		wordCounts.print();

@@ -1,10 +1,9 @@
-package com.octopx.impala.client;
+package com.octopx.apache.client;
 
 import java.util.List;
 
+import com.octopx.apache.impala.ImpalaJDBC;
 import org.junit.Test;
-
-import com.octopx.impala.client.ImpalaJDBC;
 
 import static org.junit.Assert.*;
 

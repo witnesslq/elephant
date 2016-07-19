@@ -1,4 +1,4 @@
-package com.octopx.hdfs.client;
+package com.octopx.hadoop.hdfs;
 
 import org.apache.hadoop.fs.FileSystem;
 

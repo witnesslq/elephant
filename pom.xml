@@ -106,7 +106,32 @@
 			<artifactId>spark-streaming_2.10</artifactId>
 			<version>1.6.1</version>
 		</dependency>
-		<dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_2.10</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-mllib_2.10</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming-kafka_2.10</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming-flume-sink_2.11</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-examples_2.10</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        <dependency> <!-- Avro dependency -->
 			<groupId>org.apache.avro</groupId>
 			<artifactId>avro</artifactId>
 			<version>1.8.0</version>
@@ -131,7 +156,12 @@
             <artifactId>kryo-shaded</artifactId>
             <version>3.0.3</version>
         </dependency>
-	</dependencies>
+        <dependency> <!-- Solr -->
+            <groupId>org.apache.solr</groupId>
+            <artifactId>solr-solrj</artifactId>
+            <version>4.10.3</version>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<plugins>
@@ -298,6 +328,32 @@
                                     <classifier>basic</classifier>
                                     <includes>
                                         <include>**/spark/basic/**</include>
+                                    </includes>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>package-spark-netcount</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <classifier>netcount</classifier>
+                                    <includes>
+                                        <include>**/spark/netcount/**</include>
+                                    </includes>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>package-spark-examples</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <classifier>examples</classifier>
+                                    <includes>
+                                        <include>**/spark/examples/**</include>
                                     </includes>
                                 </configuration>
                             </execution>
