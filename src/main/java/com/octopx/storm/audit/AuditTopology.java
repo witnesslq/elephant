@@ -27,8 +27,15 @@ public class AuditTopology {
         TopologyBuilder builder = new TopologyBuilder();
 
         BrokerHosts hosts = new ZkHosts(zkHosts);
+        /*
+         *  SpoutConfig is an extension of KafkaConfig that supports additional fields with ZooKeeper connection info
+         *  and for controlling behavior specific to KafkaSpout
+         */
         SpoutConfig spoutConfig = new SpoutConfig(hosts, topicName, zkRoot, UUID.randomUUID().toString());
         spoutConfig.scheme = new SchemeAsMultiScheme(new StringScheme());
+        spoutConfig.stateUpdateIntervalMs = 2000;
+        spoutConfig.fetchSizeBytes = 1024 * 1024;
+        spoutConfig.retryDelayMaxMs = 60 * 1000;
         KafkaSpout kafkaSpout = new KafkaSpout(spoutConfig);
 
         builder.setSpout("kafka-spout", kafkaSpout, 5);
@@ -41,7 +48,8 @@ public class AuditTopology {
 
         String name = AuditTopology.class.getSimpleName();
         if (args != null && args.length > 0) {
-            conf.put(Config.NIMBUS_HOST, args[0]);
+            // conf.put(Config.NIMBUS_HOST, args[0]);
+            conf.put("nimbus.seeds", args[0]);
             conf.setNumWorkers(3);
             StormSubmitter.submitTopologyWithProgressBar(name, conf, builder.createTopology());
         } else {
