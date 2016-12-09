@@ -18,8 +18,8 @@ import java.util.UUID;
  * Created by yuyang on 16/6/28.
  */
 public class AuditTopology {
-    private final static String zkHosts = "192.168.1.90:2181,192.168.1.91:2181,192.168.1.92:2181";
-    private final static String topicName = "audit";
+    private final static String zkHosts = "192.168.3.90:2181,192.168.3.91:2181,192.168.3.92:2181";
+    private final static String topicName = "git-nginx-log";
     private final static String zkRoot = "/" + topicName;
 
     public static void main(String[] args) throws InvalidTopologyException, AuthorizationException,
@@ -34,7 +34,7 @@ public class AuditTopology {
         SpoutConfig spoutConfig = new SpoutConfig(hosts, topicName, zkRoot, UUID.randomUUID().toString());
         spoutConfig.scheme = new SchemeAsMultiScheme(new StringScheme());
         spoutConfig.stateUpdateIntervalMs = 2000;
-        spoutConfig.fetchSizeBytes = 1024 * 1024;
+        //spoutConfig.fetchSizeBytes = 1024 * 1024;
         spoutConfig.retryDelayMaxMs = 60 * 1000;
         KafkaSpout kafkaSpout = new KafkaSpout(spoutConfig);
 
@@ -44,7 +44,7 @@ public class AuditTopology {
 //        builder.setBolt("word-counter", new WordCounterBolt()).fieldsGrouping("word-splitter", new Fields("word"));
 
         Config conf = new Config();
-        conf.setDebug(true);
+        conf.setDebug(false);
 
         String name = AuditTopology.class.getSimpleName();
         if (args != null && args.length > 0) {

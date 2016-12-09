@@ -2,7 +2,7 @@ package com.octopx.kafka.client;
 
 import org.junit.Test;
 
-import com.octopx.apache.kafka.ProducerClient;
+import com.octopx.kafka.ProducerClient;
 
 import static org.junit.Assert.*;
 

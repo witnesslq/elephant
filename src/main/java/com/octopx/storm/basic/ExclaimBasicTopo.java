@@ -14,15 +14,16 @@ public class ExclaimBasicTopo {
 	public static void main(String[] args) throws AlreadyAliveException, InvalidTopologyException, AuthorizationException {
 		TopologyBuilder builder = new TopologyBuilder();
 		
-		builder.setSpout("spout", new RandomSpout(), 2);	//设置Parallelism数
+		builder.setSpout("spout", new RandomSpout(), 2).setNumTasks(4);	//设置Executor数和Task数
 		builder.setBolt("exclaim", new ExclaimBasicBolt(), 2).shuffleGrouping("spout");
 		builder.setBolt("print", new PrintBolt(), 2).shuffleGrouping("exclaim");
-		
+
+
 		Config conf = new Config();
 		conf.setDebug(true);
 		
 		if (args != null && args.length > 0) {
-			conf.setNumWorkers(2);	//设置Worker数
+			conf.setNumWorkers(2);	//设置Worker数增加Workers：config.setNumWorkers(2);
 			StormSubmitter.submitTopology(args[0], conf, builder.createTopology());
 		} else {
 			LocalCluster cluster = new LocalCluster();

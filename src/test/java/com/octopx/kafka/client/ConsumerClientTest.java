@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.octopx.apache.kafka.ConsumerClient;
+import com.octopx.kafka.ConsumerClient;
 
 public class ConsumerClientTest {
 	@Test

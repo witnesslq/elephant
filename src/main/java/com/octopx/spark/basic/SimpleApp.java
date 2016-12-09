@@ -11,7 +11,7 @@ import scala.Tuple2;
 
 public class SimpleApp {
 	private final static String SPARK_HOME = "/Users/yuyang/Workspace/Binary/spark-1.6.1-bin-hadoop2.6";
-	private final static String HDFS_HOME = "hdfs://192.168.1.178:8020";
+	private final static String HDFS_HOME = "hdfs://192.168.1.90:8020";
 	
 	public static void main(String[] args) {
 		String logFile = HDFS_HOME + "/user/yuyang/README.md";
